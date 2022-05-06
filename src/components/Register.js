@@ -61,6 +61,7 @@ function Register(props) {
         console.log(postdata);
         dispatch(addUserAction(postdata));
         console.log("user",user);
+        props.fnc(0);
       }
 
     return (
@@ -98,7 +99,8 @@ function Register(props) {
                 onChange={(e)=>postdata.securityquestion=e.target.value}/>
             <input type="text" id="SecAnswer" className="fadeIn third" name="SecAnswer" placeholder="Answer to Security Question"
                 onChange={(e)=>postdata.securityanswer=e.target.value}/>
-            <input type="submit" className="fadeIn fourth" value="Log In"/>
+            <input type="submit" className="fadeIn fourth" value="Register"/>
+            <input type="button" className="fadeIn fourth" value="Cancel" onClick={()=>props.fnc(0)}/>
             </form>
 
             {/* <!-- Remind Passowrd --> */}

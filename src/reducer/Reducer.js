@@ -19,6 +19,18 @@ const initialState = {
               loading: false,
               error: action.error,
             };
+        case "VALIDATE_USER_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                items: {...action.payload}
+            };
+        case "VALIDATE_USER_FAILURE":
+            return {
+                ...state,
+                loading: false,
+                error: action.error,
+            };
         default:
             return state;
     }

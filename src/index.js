@@ -8,6 +8,14 @@ import { applyMiddleware, createStore } from 'redux';
 import PostReducer from "./reducer/Reducer.js"
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Register from '../src/components/Register.js';
+import Login from '../src/components/Login.js';
+import About from '../src/components/About.js';
 
 // App.use(express.static(__dirname));
 
@@ -19,11 +27,23 @@ const store = createStore(PostReducer,applyMiddleware(thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <React.StrictMode>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <Provider store={store}>
+    <BrowserRouter>
+                <Routes>
+                    <Route path="/register" element={<Register/>} />
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/About Us" element={<About />} />
+
+                </Routes>
+            
+    
     <App />
+    
+    </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
