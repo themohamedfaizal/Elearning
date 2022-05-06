@@ -12,8 +12,8 @@ function MainComponent(props) {
             <button onClick={()=>setLoginState(true)}>
                 Click me
             </button>
-            {/* <Register/> */}
-            {loginState && <Register/>}
+            <Register/>
+            {/* {loginState && <Register/>} */}
         </div>
     );
 }
