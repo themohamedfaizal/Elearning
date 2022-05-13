@@ -65,6 +65,7 @@ function Register(props) {
       }
 
     return (
+        <div className="wrapper fadeInDown">
         <div id="formContent">
             <div className="fadeIn first">
             {/* <img src="" id="icon" alt="User Icon" /> */}
@@ -106,6 +107,7 @@ function Register(props) {
             {/* <!-- Remind Passowrd --> */}
             <div id="formFooter">
             <a className="underlineHover" href="#">Already Registered? Sign in here..</a>
+            </div>
             </div>
         </div>
     );

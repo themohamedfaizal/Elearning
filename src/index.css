@@ -13,9 +13,9 @@ code {
 }
 /* BASIC */
 
-html {
+/* html {
   background-color: #56baed;
-}
+} */
 
 /* body {
   font-family: "Poppins", sans-serif;
@@ -30,13 +30,13 @@ a {
 }
 
 h2 {
-  text-align: center;
+  text-align: Left;
   font-size: 16px;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   display:inline-block;
   margin: 40px 8px 10px 8px; 
-  color: #cccccc;
+  color:#282A35;
 }
 
 
@@ -51,6 +51,7 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  margin-top: 300px;
 }
 
 #formContent {
@@ -60,11 +61,13 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 450px;
-  position: relative;
+  position: absolute;
+  margin:auto;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+  margin-block-start: inherit;
 }
 
 #formFooter {
@@ -157,21 +160,23 @@ Select[id=role]:placeholder,input[type=password]:placeholder, input[type=passwor
   color: #cccccc;
 }
 
+
+
 .brandHeader{
   position: relative;
   z-index: 4;
   font-size: 16px;
-  gap: 50px;
-  
-  background-color: rgb(113, 187, 247);
+  gap: 5px;
+/*   
+  background-color: rgba(113, 187, 247, 0); */
   color: #282A35;
-  padding-left: 12px;
-  padding-right: 16px;
+  /* padding-left: 12px;
+  padding-right: 16px; */
   font-family: 'Source Sans Pro', sans-serif;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   width: 100%;
   overflow: hidden;
-  text-align: left;
+  
 }
 loginbtn{
   padding:100px;
@@ -180,6 +185,35 @@ loginbtn{
 }
 div {
   display: block;
+}
+
+.subscript {
+  margin: 40px;
+}
+
+.courselist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  padding: 50px;
+  gap: 30px;
+}
+.course{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+  padding: 20px;
+  border:2px solid #282A35;
+  flex-basis: 300px;
+  
+}
+.enroll{
+  border-radius: 10px;
+  padding: 10px;
+  border:2px solid #282A35;
+  background: #5fbae9;
 }
 
 *, *:before, *:after {

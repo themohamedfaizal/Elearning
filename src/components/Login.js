@@ -1,11 +1,14 @@
 import React from 'react';
 import {useDispatch,useSelector} from 'react-redux';
+import { useNavigate } from 'react-router';
 import {validateUserAction} from '../action/action.js';
+import http from "../AxiosMW/http-common.js"
 
 function Login(props) {
 
     const dispatch = useDispatch();
     const password = useSelector((state)=>state.items.password);
+    let navigate = useNavigate();
     const postdata = {
         fname:'',
         lname:'',
@@ -19,10 +22,37 @@ function Login(props) {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(postdata);
-        dispatch(validateUserAction(postdata));
-        dispatch(logpwd);
+        // console.log(postdata);
+        // dispatch(validateUserAction(postdata));
+        // dispatch(logpwd);
         props.fnc(0);
+
+        http.get("/users/"+postdata.emailid)
+        .then(res => {
+            console.log(res);
+          const user = res.data.fname;
+          const password = res.data.password;
+          //const username = this.state.username;
+          const passwordEntered = postdata.password;
+        //   if(username === '' && passwordEntered === ''){
+        //     document.getElementById('status').innerHTML = '<p>Please Enter A Valid Username and Password</p>';
+        //   }else 
+          if(passwordEntered === password){
+            gotoenroll();
+          }else{
+              //document.getElementById('status').innerHTML = '<p>Please Enter A Valid Username and Password</p>';
+              console.log("Password Mismatch");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+
+
+    }
+
+    function gotoenroll(){
+        navigate("\About Us");
     }
 
     const logpwd =()=>{console.log("uspassword: ",password);}
@@ -34,7 +64,7 @@ function Login(props) {
 
                 {/* <!-- Icon --> */}
                 <div className="fadeIn first">
-                {/* <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> */}
+                <h3>Log in</h3>
                 </div>
 
                 {/* <!-- Login Form --> */}
